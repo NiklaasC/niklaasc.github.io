@@ -18,20 +18,21 @@
 				margin: 0px auto; }
 			img {
 				max-width: 100%;
-				height: auto; }
+				height: auto;
+				margin: 0px auto; }
 		</style>
 	</head>
 	<body>
 		<div id="wrapper">
-			<img id="bun" src="./res/freebun.png" width="650" height="360" alt="">
+			<img id="bun" src="./res/freebun.png" width="650" height="360" alt="A cartoon bunny sitting in a box labelled: 'Free Bun'">
 		</div>
 		<script>
 			"use strict";
 			
-			function center() {
-				var element = document.getElementById("bun");
-				var height = parseInt( window.getComputedStyle(element, null).getPropertyValue("height") );
-				var margin = ( window.innerHeight - height ) / 2;
+			function centerImage() {
+				var element = document.getElementById( "bun" );
+				var elementHeight = parseInt( window.getComputedStyle( element, null ).getPropertyValue( "height" ) );
+				var margin = ( window.innerHeight - elementHeight ) / 2;
 				if( margin > 0 ) {
 					element.style.marginTop = margin + "px";
 				} else {
@@ -39,8 +40,8 @@
 				}
 			}
 			
-			window.addEventListener("load", center);
-			window.addEventListener("resize", center);
+			window.addEventListener( "load", centerImage );
+			window.addEventListener( "resize", centerImage );
 		</script>
 	</body>
 </html>

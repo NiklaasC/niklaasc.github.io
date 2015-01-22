@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>FREE BUN</title>
+		<title>Niklaas - 404</title>
 		<meta name="author" content="Niklaas Charles">
 		<meta name="description" content="">
 		<meta name="keywords" content="">
@@ -31,23 +31,5 @@
 		<div id="wrapper">
 			<img id="bun" src="./res/nobun.png" width="650" height="360" alt="An empty box labelled: 'Free Bun'">
 		</div>
-		<script>
-			"use strict";
-			
-			function centerImage() {
-				var element = document.getElementById( "bun" );
-				var elementHeight = parseInt( window.getComputedStyle( element, null ).getPropertyValue( "height" ) );
-				var margin = ( window.innerHeight - elementHeight ) / 2;
-				if( margin > 0 ) {
-					element.style.marginTop = margin + "px";
-				} else {
-					element.style.marginTop = "0px";
-				}
-			}
-			
-			window.addEventListener( "load", centerImage );
-			window.addEventListener( "resize", centerImage );
-			window.addEventListener( "deviceorientation", centerImage );
-		</script>
 	</body>
 </html>

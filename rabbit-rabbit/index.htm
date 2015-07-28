@@ -20,12 +20,17 @@ function preload() {
 	game.load.image("sky", "./res/sky.png");
 	game.load.tilemap("map", "./res/map.json", null, Phaser.Tilemap.TILED_JSON);
 	game.load.image("block", "./res/block.png", 16, 16);
+	game.load.image("fox", "./res/fox.png");
+	game.load.image("foxbody", "./res/foxbody.png");
 	game.load.spritesheet("bun", "./res/bun.png", 12,28);
 }
 
 var map;
 var layer;
 var player;
+var fox;
+var foxBody = [];
+var foxPath = [];
 var cursors;
 
 function create() {
@@ -37,12 +42,12 @@ function create() {
 	map.addTilesetImage("block");
 	
 	layer = map.createLayer("Tile Layer 1");
-	//  Basically this sets EVERY SINGLE tile to fully collide on all faces
-	//	phaser.io/examples/v2/tilemaps/sci-fly
+	//  Set the tiles which block the player
 	map.setCollision(1);
 	layer.resizeWorld();
 	
 	player = game.add.sprite(200,300, "bun");
+	player.anchor.setTo(0.5,0.5);
 	
 	game.physics.arcade.enable(player);
 	player.body.bounce.y = 0.2;
@@ -53,6 +58,20 @@ function create() {
 	player.animations.add("right", [5,6,7,8], 8, true);
 	player.animations.add("stand", [4], 8, true);
 	
+	fox = game.add.sprite(200,20, "fox");
+	fox.anchor.setTo(0.5,0.5);
+	game.physics.arcade.enable(fox);
+	
+	for (var i = 1;  i <= 8 -1; i++) {
+		foxBody[i] = game.add.sprite(fox.x,fox.y, "foxbody");
+		foxBody[i].anchor.setTo(0.5,0.5);
+	}
+	
+	for (var i = 0; i <= 8*20; i++) {
+		var p = {x:200, y:20};
+		foxPath[i] = p;
+	}
+	
 	cursors = game.input.keyboard.createCursorKeys();	
 }
 
@@ -60,7 +79,27 @@ function update() {
 	//	Collide before input, otherwise player collisions with the map can't be detected!
 	game.physics.arcade.collide(player, layer);
 	
+	game.physics.arcade.moveToObject(fox, player, 80);
+	
+	//	game.physics.arcade.collide(fox, layer); //	If the fox collides with the map it gets stuck very easily...
+	
+	var temp = foxPath.pop();
+	
+	temp.x = fox.x;
+	temp.y = fox.y;
+	
+	foxPath.unshift(temp);
+	
+	for (var i = 1; i <= 8 - 1; i++) {
+		foxBody[i].x = (foxPath[i * 10]).x;
+    foxBody[i].y = (foxPath[i * 10]).y;
+  }
+	
 	player.body.velocity.x = 0;
+	
+	if (game.physics.arcade.distanceBetween( player, fox ) <= 10) {
+		restartLevel();
+	}
 	
 	if (cursors.left.isDown) {
 		player.body.velocity.x = -150;
@@ -76,6 +115,26 @@ function update() {
 		if (player.body.onFloor()) { //...was player.body.touching.down
 			player.body.velocity.y = -300;
 		}
+	}
+}
+
+function restartLevel() {
+	
+	//	Reset player ...
+	player.position.x = 200;
+	player.position.y = 300;
+	player.body.velocity.x = 0;
+	player.body.velocity.y = 0;
+	
+	//	Reset fox ...
+	fox.position.x = 200;
+	fox.position.y = 20;
+	fox.body.velocity.x = 0;
+	fox.body.velocity.y = 0;
+	
+	for (var i = 0; i <= 8*20; i++) {
+		var p = {x:200, y:20};
+		foxPath[i] = p;
 	}
 }
 

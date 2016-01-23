@@ -1,0 +1,27 @@
+html, body, div, img, strong {
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				outline: 0px;
+				display: block; }
+			a, a:active, a:focus {
+				outline: none; }
+			body {
+				font-family: sans-serif;
+				background: #cccccc;
+				color: #353535; }
+			#wrapper {
+				max-width: 650px;
+				margin: 20px auto; }
+			img {
+				max-width: 100%;
+				height: auto;
+				margin: 0px auto; }
+			.container {
+				position: relative;
+				padding: 20px 0px; }
+			strong {
+				width: 100%;
+				font-weight: bold;
+				text-align: center;}
+				

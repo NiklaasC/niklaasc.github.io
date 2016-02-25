@@ -43,10 +43,12 @@ rabbit.Fox = function(game, x, y, player, bunnies){
 rabbit.Fox.prototype = Object.create(Phaser.Sprite.prototype);
 rabbit.Fox.prototype.constructor = rabbit.Fox;
 rabbit.Fox.prototype.update = function() {
+	//	Local variables
 	var bunnySearch;
 	var distance;
 	var closestBunDistance;
 	var closestBun;
+	var temp;
 
 	// Search for the cloeset bunny
 	// for each bun
@@ -79,7 +81,7 @@ rabbit.Fox.prototype.update = function() {
 	}
 
 
-	var temp = this.path.pop();
+	temp = this.path.pop();
 	temp.x = this.x;
 	temp.y = this.y;
 	this.path.unshift(temp);
@@ -96,6 +98,7 @@ rabbit.Fox.prototype.update = function() {
 };
 rabbit.Fox.prototype.reset = function() {
 	//	Reset fox ...
+	//	Not currently used, but kept for potential use in future
 	this.position.x = this.originX;
 	this.position.y = this.originY;
 	this.body.velocity.x = 0;

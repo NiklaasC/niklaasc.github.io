@@ -9,21 +9,22 @@ rabbit.GameoverState.prototype = {
 		this.maximumBun = maxBun;
 	},
 	create: function() {
+		//	Variables
+		var style = { font: "Arial 20px bold", fill: "#000000"};
 		//	Add background
-		//	Use image if no animation or physics is required
+		//	Use image if no animation or physics is required, otherwise sprite
 		this.add.image(0,0, "sky");
-
-		//	Create a carrot group for ... carrots
-		// this.bunnies = this.game.add.group();
 
 		//	Add input
 		//	If input gets very complex it may be better to create its own object
 		//	But for now it's fine as it is ...
 		this.spaceBar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);//this.game.input.keyboard.createCursorKeys();
-		var string = " buns!"
-		var style = { font: "Arial 20px bold", fill: "#000000"};
+
+		//	Add text
 		this.rescueText = this.game.add.text(20,20, " ", style);
 		this.resetText = this.game.add.text(20,60, "Press spacebar to play again!", style);
+
+		//	Decide on text based on the number of buns rescued, and whether the player is still alive!
 		if (this.playerDead == true){
 			this.rescueText.setText("You died!");
 		} else {
@@ -39,13 +40,9 @@ rabbit.GameoverState.prototype = {
 		}
 	},
 	update: function() {
+		//	Go back to the play-state if the spacebar is pressed
 		if (this.spaceBar.isDown ) {
 			this.state.start("GameState");
 		}
-	},
-	restartLevel: function() {
-		//	Reset game ...
-		this.bun.reset();
-		this.fox.reset();
 	}
 };

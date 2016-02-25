@@ -8,7 +8,7 @@ rabbit.Bun = function(game, x, y, gameInput) {
 	//	Sprite info
 	this.anchor.setTo(0.5, 0.5);
 	this.game.physics.arcade.enable(this);
-	this.body.bounce.y = 0.2;
+	//	this.body.bounce.y = 0;
 	this.body.gravity.y = 600;
 
 	//	Pass references
@@ -54,6 +54,7 @@ rabbit.Bun.prototype.update = function() {
 };
 rabbit.Bun.prototype.reset = function() {
 	//	Quick and dirty reset
+	//	No longer used, but it might come in handy!
 	this.position.x = this.originX;
 	this.position.y = this.originY;
 	this.body.velocity.x = 0;

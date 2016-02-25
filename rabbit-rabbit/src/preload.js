@@ -14,8 +14,7 @@ rabbit.PreloadState.prototype = {
 		this.load.image("sky", "./res/sky.png");
 		// Tilesets for Tiled maps must have exactly matching names!
 		this.load.image("block", "./res/block.png");
-		// this.load.image("bunny", "./res/bunny.png");
-		this.load.spritesheet("block2", "./res/block2.png", 16,16);
+		this.load.spritesheet("foxSprites", "./res/foxspritesheetsmall.png", 64,64)
 		this.load.image("fox", "./res/fox.png");
 		this.load.image("foxbody", "./res/foxbody.png");
 		this.load.spritesheet("bun", "./res/bun.png", 12,28);

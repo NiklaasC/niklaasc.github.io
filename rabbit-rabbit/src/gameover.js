@@ -13,7 +13,7 @@ rabbit.GameoverState.prototype = {
 		var style = { font: "Arial 20px bold", fill: "#000000"};
 		//	Add background
 		//	Use image if no animation or physics is required, otherwise sprite
-		this.add.image(0,0, "sky");
+		//	this.add.image(0,0, "sky");
 
 		//	Add input
 		//	If input gets very complex it may be better to create its own object

@@ -13,23 +13,48 @@ rabbit.GameState.prototype = {
 		//	But for now it's fine as it is ... note: DO NOT call this variale input ... Phaser thinks it's a nested input object
 		//	It will throw destroy() is not a function (member function) of input because it thinks input inherited from phaser.input
 		this.stateInput = this.game.input.keyboard.createCursorKeys();
-
+    this.game.input.gamepad.start();
+    this.gamepadInput = this.game.input.gamepad.pad1;
+    // Phaser automatically creates two pointers.
+    // game.input.mousePointer
+    // game.input.pointer1
+    this.touchInput = {
+      touchPadIsDown: false,
+      touchID: undefined,  // the ID ("mouse" or "pointer") for the thinger doing the joysticking!
+      originX: 0,
+      originY: 0,
+      x: 0,
+      y: 0,
+      isGoingRight: false,
+      isGoingLeft: false,
+      isJumping: false,
+      jumpID: undefined
+    };
+    
+    //this.game.world.resize(this.game.width*2, this.game.height*2);
 		//	Add background
 		//	Use image if no animation or physics is required
 		//	this.add.image(0,0, "sky");
 
 		//	Add map data
+    //  THIS IS ALWAYS AT 0,0, and can't be bloody moved!
 		this.map = this.game.add.tilemap("map");
 		this.map.addTilesetImage("block", "block", 16,16);
-
+    
 		//	Load level
 		this.level = this.map.createLayer("tiles");
-		//	Set tiles to collide with
+    //	Set tiles to collide with
 		//	Tiles are indexed from 1 in this case ...
 		this.map.setCollision(1);
 		//	Call this to set the world size to match the size of the level
-		this.level.resizeWorld();
-
+    
+    // YES!!!! HOLY SHIT!
+    this.game.world.setBounds(-1000, -1000, 2000, 2000);
+    //this.level.resizeWorld();
+    this.game.camera.focusOnXY(200,200);
+    
+    
+    
 		//	Create a group for all the bunnies
 		this.bunnies = this.game.add.group();
 
@@ -40,7 +65,7 @@ rabbit.GameState.prototype = {
 		this.bunniesRemaining = this.bunnies.length;
 
 		//	Add player data
-		this.bun = new rabbit.Bun(this.game, 100,100, this.stateInput);
+		this.bun = new rabbit.Bun(this.game, 100,100, this.stateInput, this.gamepadInput, this.touchInput);
 		this.playerDead = false;
 
 		//	Add Fox data////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,6 +113,23 @@ rabbit.GameState.prototype = {
 		//	As bun, fox etc are abstracted away...
 		//	I assume this runs before everything else is updated(!)
 		this.game.physics.arcade.collide(this.bun, this.level);
+    
+    // udpate pointers!
+    this.updatePointer(this.game.input.mousePointer);
+    this.updatePointer(this.game.input.pointer1);
+    
+    if (this.touchInput.touchPadIsDown) {
+      if (this.touchInput.x - this.touchInput.originX < 0) {
+        this.touchInput.isGoingLeft = true;
+        this.touchInput.isGoingRight = false;
+      } else if (this.touchInput.x - this.touchInput.originX > 0) {
+        this.touchInput.isGoingLeft = false;
+        this.touchInput.isGoingRight = true;
+      }
+    } else {
+      this.touchInput.isGoingLeft = false;
+      this.touchInput.isGoingRight = false;
+    }
 		
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 		var i;
@@ -197,6 +239,62 @@ rabbit.GameState.prototype = {
 		//	Go to gameover state ... take the player info and bunnies info with you ...
 		this.state.start("GameoverState", true, false, this.bun.bunsRescued, this.bunnies.length, this.playerDead);
 	},
+  updatePointer: function( pointer ) {
+    //////// INPUT NONSENSE! /////////////////////////////////////////////////////////////////////////
+    // For each pointer, see if it is justPressed
+    //  If it is, then see where
+    //    if it's the left hand side of the screen, make it a joystick
+    //    if there is already an input for this (down?), ignore!
+    //      set the current x and y position.
+    //      then update the x and y to generate an x - x origin to produce either go right, or go left if it's negative or positive
+    //    if it's the right hand side, make it a button!
+    //      set jump!
+    var width = window.innerWidth;
+    
+    if (pointer.isDown) {
+      // where?
+      if (pointer.pageX < width/2) { // gameworld pixels pointer.position.x
+        // it is a joystick thinger!
+        if (this.touchInput.touchPadIsDown) {
+          // touch is already down, just update the x and y positions! If you are the pointer in charge of the pad!
+          if (pointer.id == this.touchInput.touchID) {
+            this.touchInput.x = pointer.pageX;
+          }
+        } else {
+          // new toucher!
+          this.touchInput.touchPadIsDown = true;
+          this.touchInput.touchID = pointer.id;
+          this.touchInput.originX = pointer.pageX;
+          this.touchInput.x = pointer.pageX;
+        }
+      } else {
+        if (this.touchInput.touchPadIsDown && (this.touchInput.touchID == pointer.id)) {
+          //  even though this is over the wrong side, if the touchPadIsDown, take in input for x until it is released!
+          this.touchInput.x = pointer.pageX;
+        } else {
+          //  this is not the same pointer as the touchPad, so just go ahead and jump!
+          this.touchInput.isJumping = true;
+          this.touchInput.jumpID = pointer.id;
+        }
+      }
+    } else {
+      // No touch!
+      if (this.touchInput.touchID == pointer.id) {
+        // released the joystick!
+        this.touchInput.touchPadIsDown = false;
+        this.touchInput.touchID = undefined;
+      } else {
+        // if you're not the joystick, you're the jump button! so stop that!
+        if (this.touchInput.jumpID == pointer.id) {
+          this.touchInput.isJumping = false;
+          this.touchInput.jumpID = undefined;
+        }
+        // The other pointer that isn't jumping will overwrite this so that there is no jumping
+        // But without this here the jumping doesn't stop!
+        
+      }
+    }
+  },
 	removeSprite: function( entity, sprite ){
 		//	Remove sprite ...
 		//	If it was the player, add the bun to the rescued list ...

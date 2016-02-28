@@ -1,7 +1,7 @@
 //	Bun (Player) entity for RabbitRabbit
 var rabbit = rabbit || {};
 
-rabbit.Bun = function(game, x, y, gameInput) {
+rabbit.Bun = function(game, x, y, keyInput, padInput, touchInput) {
 	//	Create sprite
 	Phaser.Sprite.call(this, game, x, y, "bun");
 
@@ -13,7 +13,9 @@ rabbit.Bun = function(game, x, y, gameInput) {
 
 	//	Pass references
 	// this.game = game;
-	this.bunInput = gameInput;
+	this.keyInput = keyInput;
+  this.padInput = padInput;
+  this.touchInput = touchInput;
 	this.originX = x;
 	this.originY = y;
 
@@ -36,17 +38,17 @@ rabbit.Bun.prototype.update = function() {
 	this.body.velocity.x = 0;
 
 	//	Is Bun going left, right or standing still
-	if (this.bunInput.left.isDown) {
+	if (this.keyInput.left.isDown || this.padInput.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1 || this.touchInput.isGoingLeft) {
 		this.body.velocity.x = -150;
 		this.animations.play("left");
-	} else if (this.bunInput.right.isDown) {
+	} else if (this.keyInput.right.isDown || this.padInput.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1 || this.touchInput.isGoingRight) {
 		this.body.velocity.x = 150;
 		this.animations.play("right");
 	} else {
 		this.animations.play("stand");
 	}
 	//	Jump! if bun is standing on the ground ...
-	if (this.bunInput.up.isDown) {
+	if (this.keyInput.up.isDown || this.padInput.justPressed(Phaser.Gamepad.XBOX360_A) || this.touchInput.isJumping) {
 		if (this.body.onFloor()) {
 			this.body.velocity.y = -300;
 		}

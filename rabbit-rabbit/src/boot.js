@@ -24,7 +24,8 @@ rabbit.BootState.prototype = {
 		//	EXACT_FIT- Streched to fill all avaliable space
 		//	RESIZE - Changes the Game size to fit the display size
 		//	USER_SCALE - User specified by setUserScale
-		this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE; //NO_SCALE;
+    
+		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; //NO_SCALE;
 
 		//	Put the game in the center of the screen
 		this.scale.pageAlignHorizontally = true;

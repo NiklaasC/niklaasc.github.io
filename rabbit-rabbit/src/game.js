@@ -18,6 +18,8 @@ rabbit.GameState.prototype = {
     // Phaser automatically creates two pointers.
     // game.input.mousePointer
     // game.input.pointer1
+    this.game.input.addPointer();
+    
     this.touchInput = {
       touchPadIsDown: false,
       touchID: undefined,  // the ID ("mouse" or "pointer") for the thinger doing the joysticking!
@@ -117,6 +119,7 @@ rabbit.GameState.prototype = {
     // udpate pointers!
     this.updatePointer(this.game.input.mousePointer);
     this.updatePointer(this.game.input.pointer1);
+    this.updatePointer(this.game.input.pointer2);
     
     if (this.touchInput.touchPadIsDown) {
       if (this.touchInput.x - this.touchInput.originX < 0) {

@@ -47,7 +47,7 @@ rabbit.GameoverState.prototype = {
 	},
 	update: function() {
 		//	Go back to the play-state if the spacebar is pressed
-		if (this.spaceBar.isDown || this.gamepadInput.justPressed(Phaser.Gamepad.XBOX360_B) || this.game.input.mousePointer.isDown) {
+		if (this.spaceBar.isDown || this.gamepadInput.justPressed(Phaser.Gamepad.XBOX360_B) || this.game.input.pointer1.isDown) {
 			this.state.start("GameState");
 		}
 	}

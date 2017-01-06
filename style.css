@@ -6,20 +6,51 @@ html, body, div, img, strong {
 	display: block; }
 a, a:active, a:focus {
 	outline: none; }
+a {
+	color: #529ecc;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	color: #97c5e0;
+}
 body {
 	font-family: sans-serif;
 	background: #cccccc;
 	color: #353535; }
 #wrapper {
-	max-width: 650px;
-	margin: 20px auto; }
+	max-width: 680px;
+	margin: 60px auto; }
+#bun {
+	padding-left: 38px;
+}
 img {
 	max-width: 100%;
-	height: auto;
-	margin: 0px auto; }
+	height: auto; }
+#navigation {
+	height: 32px;
+	padding-bottom: 30px;
+}
+#navigation a {
+	color: #000000;
+	font-size: 135%;
+	line-height: 32px;
+}
+#navigation ul {
+	list-style: none;
+	padding: 0px 0px 0px 35px;
+	margin: 0px;
+}
+#navigation ul li {
+	display: inline-block;
+	padding: 0 10px 0 0;
+}
 .container {
 	position: relative;
 	padding: 20px 0px; }
+.container img {
+	margin: 0px auto;
+}
 strong {
 	width: 100%;
 	font-weight: bold;

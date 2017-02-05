@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="urf-8">
+    <title></title>
+    <style>
+    #canvas {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+    }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    
+    var H = canvas.height = 512;
+    var W = canvas.width = H * window.innerWidth / window.innerHeight;
+    
+    //  Load image data for randomDistributionFromImage
+    var imgCanvas = document.createElement('canvas');
+    var imgContext = imgCanvas.getContext('2d');
+    
+    var img = new Image();
+    img.src = 'distribution.png';
+    
+    //  It is necessary to wait for the image to load before using it!
+    img.onload = function() {
+      ctx.drawImage(img,0,0);
+      
+      update();
+    }
+    
+    var imgW = img.width;
+    var imgH = img.height;
+    console.log(img.width);
+    console.log(img.height);
+    
+    function update() {
+      ctx.fillStyle = "rgba(255,255,255,0.01)";
+      //  This distribution is from 0 to 1, not -0.5 to 0.5.
+      //  Corrections have to be made accordingly if that is not what is required.
+      //  n = 30 is good enough for a gaussian distribution, but lower would be fine for rough stuff!
+      ctx.fillCircle((randomGaussian(12)*800) + W/2 - 800/2, 150, 10);
+      ctx.fillCircle(randomMonteCarloLinear() * 620, 200, 10);
+      ctx.fillCircle(randomMonteCarloExponential() * 620, 250, 10);
+      ctx.fillCircle(randomBiased(0, 620, 200, 1.75), 300, 10);
+      ctx.fillCircle(randomDistributionFromImage(ctx) * 620, 350, 10);
+      ctx.fillCircle(Math.random() * 620, 400, 10);
+      
+      requestAnimationFrame(update);
+    }
+    
+    //  requestAnimationFrame(update);
+    
+    //  Adding a fillCircle (like fillRect) to the CanvasRenderingContext2D for ease of use!
+    //  I will try to accumulate some of these handy functions!
+    CanvasRenderingContext2D.prototype.fillCircle = function(x,y,r) {
+      this.beginPath();
+      this.arc(x,y,r,0,2*Math.PI);
+      this.fill();
+    }
+    
+    function randomGaussian(n) {
+      //  From http://jsfiddle.net/xx9bh8Lz/1/
+      //  Based on the central limit theorem
+      //  Via http://stackoverflow.com/questions/25582882/javascript-math-random-normal-distribution-gaussian-bell-curve
+      var rand = 0;
+      
+      for (var i = 0; i < n; i += 1) {
+        rand += Math.random();
+      }
+      
+      //  return (rand - n/2) / (n/2)
+      return rand / n;
+    }
+    
+    //  Bonus gaussian range
+    function randomGaussianRange(sample, start, end) {
+      return Math.floor(start + gaussianRand(sample) * (end - start + 1));
+    }
+    
+    function randomMonteCarloLinear() {
+      while (true) {
+        //  Random number
+        var r1 = Math.random();
+        //  Selection criteria - qualification criteria
+        var r2 = Math.random();
+        
+        if (r2 < r1) {
+          return r1;
+        }
+      }
+    }
+    
+    function randomMonteCarloExponential() {
+      while (true) {
+        var r1 = Math.random();
+        var probability = r1 * r1;
+        var r2 = Math.random();
+        
+        if (r2 < probability) {
+          return r1;
+        }
+      }
+    }
+    
+    function randomBiased(minimum, maximum, bias, influence) {
+      //  From http://stackoverflow.com/questions/29325069/how-to-generate-random-numbers-biased-towards-one-value-in-a-range?noredirect=1&lq=1
+      //  Generate a random number between min and max
+      var r1 = Math.random() * (maximum-minimum) + minimum;
+      //  Generate a random mix value
+      var r2 = Math.random() * influence;
+      //  Secondary factor to affect how much the mix influences the result, where factor is [0,1]
+      var factor = 1;
+      
+      //  Mix random with bias based on random mix
+      return r1 * (1-r2) + (bias * r2 * factor);
+    }
+    
+    function randomDistributionFromImage(data) {
+      while (true) {
+        var r1 = Math.random();
+        var r2 = Math.random();
+        
+        var x = Math.floor(r1 * 580);
+        var y = Math.floor(r2 * 80);
+        
+        var deets = data.getImageData(x,y,1,1);
+        
+        if(deets.data[0] === 0) {
+          return r1;
+        }
+      }
+    }
+    
+    </script>
+  </body>
+</html>

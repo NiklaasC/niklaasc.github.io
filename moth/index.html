@@ -2,67 +2,86 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Moth Project</title>
-    <style>
-      body, div {
-        margin: 0px;
-        border: 0px
-        padding: 0px;
-        font-family: sans-serif;
-      }
-      body {
-        background-image: url('IMG_1412_E.JPG');
-        background-size: cover;
-        margin: 0px;
-        padding: 0px;
-        width:100%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
-        z-index: -10;
-      }
-      #cover {
-        max-width: 100%;
-        height: auto;
-      }
-      h2 {
-        margin: 0px;
-        color: white;
-        padding: 50px;
-      }
-      #wrapper {
-        width: 62%;
-        margin: 0px auto;
-      }
-      #video {
-        width: 100%;
-        height: auto;
-      }
-      #maximum {
-        width: 100%;
-      }
-    </style>
+    <title>Moth - Niklaas</title>
+    <link href="../style.css" rel="stylesheet">
+    <link href="./moth.css" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">
       <h2>Moth</h2>
-      <p>
-        A robotic moth, an attempt to play with the contradicting emotions of empathy and disgust.
-      </p>
-      <img id="process" src="" width="" height="" alt="">
-      <img id="maximum" src="IMG_1294.JPG" width="" height="" alt="">
-      <video id="video" src="moth-nosound.mp4" width="" height="" alt="" muted loop autoplay></video>
-      <img id="maximum" src="p1010292.jpg" width="" height="" alt="">
-      <img id="maximum" src="" width="" height="" alt="">
-      <p>
-        Aknowledgements:
-      </p>
+      <div class="left copy">
+        <p>A robotic moth designed to play with the conflicting emotions of disgust and empathy. A moth struggles on it's back.</p>
+      </div>
+      <div class="right">
+        <img class="maximum" src="IMG_0436_ES.JPG" width="" height="" alt="Laser cut legs!">
+        <div class="maximum caption">
+          Image courtesy of Rusty Squid Ltd.
+        </div>
+        <img class="maximum" src="IMG_0739_ES.JPG" width="" height="" alt="">
+        <div class="maximum caption">
+          Image courtesy of Rusty Squid Ltd.
+        </div>
+      </div>
+      <img class="maximum" src="IMG_1294_E.JPG" width="" height="" alt="">
+      <div class="maximum caption">
+        Image courtesy of Rusty Squid Ltd.
+      </div>
+      <div class="center copy">
+        <p>A robotic moth designed to play with the conflicting emotions of disgust and empathy. A moth struggles on it's back.</p>
+      </div>
+      <div>
+        <img class="maximum" src="IMG_1412_E.JPG" width="" height="" alt="">
+        <div class="maximum caption">
+          Image courtesy of Rusty Squid Ltd.
+        </div>
+      </div>
+      <div class="center copy">
+        <p>A robotic moth designed to play with the conflicting emotions of disgust and empathy. A moth struggles on it's back.</p>
+        <h3>Acknowledgements:</h3>
+        <p>Fellow interns at Rusty Squid: George Rumney and <a href="http://www.charlottebiszewski.com" rel="external" target="_blank">Charlotte Biszewski</a>.</p>
+      </div>
+      <div class="logo-container">
+        <a href="http://www.rustysquid.co.uk/" class="logo" rel="external" target="_blank"><img src="../res/rustysquid200.png" width="200" height="200"></a>
+        <a href="http://www.puppetplace.org/" class="logo" rel="external" target="_blank"><img src="../res/puppetplacelogo.png" width="200" height="200"></a>
+        <a href="http://madeinroath.com/" class="logo" rel="external" target="_blank"><img src="../res/mir_transparent200.png" width="200" height="200"></a>
+      </div>
     </div>
-    <script>
-      //var cover = document.getElementById("coverbox");
-      //var width = cover.offsetHeight - "px";
-      //cover.style.height = ((window.innerHeight - 120) + "px" );
-    </script>
+    <div class="fullscreen-bg">
+      <video loop muted autoplay poster="output.jpg" class="fullscreen-bg__video">
+          <source src="moth-nosound.mp4" type="video/mp4">
+      </video>
+    </div>
+    <nav>
+      <ul id="nav">
+        <li>
+          <a href="../index.html">
+            <img src="../res/logo_white60.svg" width="54" height="54" alt="bunlogo">
+          </a>
+        </li>
+        <li>
+          <a href="../index.html">
+            <svg viewBox="0 0 120 54" width="120">
+              <text text-anchor="middle" x="60" y="38" dy="1" style="
+      font-style:normal; font-weight:bold; font-size:28px;font-family:sans-serif;
+      line-height:125%; letter-spacing:0px;
+      fill:#FFFFFF; fill-opacity:0.6; stroke:none;">Portfolio</text>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../index.html">
+            <svg viewBox="0 0 80 54" width="80">
+              <text text-anchor="middle" x="40" y="38" dy="1" style="
+      font-style:normal; font-weight:bold; font-size:28px;font-family:sans-serif;
+      line-height:125%; letter-spacing:0px;
+      fill:#FFFFFF; fill-opacity:0.6; stroke:none;">About</text>
+            </svg>
+          </a>
+        </li>
+        <li><a href="https://www.instagram.com/itsniklaas/" rel="external" target="_blank"><img src="../res/instagram_white.svg" alt="" height="54" width="38"></a></li>
+				<li><a href="https://twitter.com/itsniklaas/" rel="external" target="_blank"><img src="../res/twitter_white.svg" alt="" height="54" width="38"></a></li>
+      </ul>
+    </nav>
+    <script src="../positionShim.js"></script>
   </body>
 </html>

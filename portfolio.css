@@ -1,0 +1,31 @@
+body {
+  background-color: #000;
+	background-image: url('output.jpg');
+}
+.fullscreen-bg {
+  background: url('output.jpg') center center / cover no-repeat;
+}
+.wrapper {
+  top: 200px;
+}
+.experiments {
+  top: 260px;
+}
+h2 {
+  left: -6px;
+}
+h3 {
+  color: #ffffff;
+  font-size: 2.8em;
+  margin: 0px;
+  color: white;
+  padding: 0px;
+  position: absolute;
+  bottom: -0.25em;
+  right: -3px;
+  line-height: normal;
+}
+
+#moth {
+  background-image: url('./moth/IMG_0436_ES.JPG');
+}

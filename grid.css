@@ -1,0 +1,64 @@
+.row {
+  margin-bottom: 20px;
+}
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.column {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  float:left;
+  margin-left: 4%;
+  background-color: #cccccc;
+  background-size: cover;
+  background-position: center;
+}
+.column:first-child {
+  margin-left: 0;
+}
+.column a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.one {
+  width: 13.3333333333%;;
+}
+.two {
+  width: 30.6666666667%;
+}
+.three {
+  width: 48%;
+}
+.four {
+  width: 65.3333333333%;
+}
+.five {
+  width: 82.6666666667%;
+}
+.six {
+  width: 100%;
+  margin-left: 0;
+}
+.spacer {
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .one, .two, .three, .four, .five, .six {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+  .row {
+    margin-bottom: 0px;
+  }
+  .spacer {
+    height: 0px;
+    margin-bottom: 0px;
+  }
+}

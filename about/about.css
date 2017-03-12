@@ -1,0 +1,13 @@
+body {
+	background-color: #000;
+		background-image: url('output.jpg');
+}
+.fullscreen-bg {
+  background: url('output.jpg') center center / cover no-repeat;
+}
+.wrapper {
+	top: 200px;
+}
+h2 {
+	left: -5px;
+}

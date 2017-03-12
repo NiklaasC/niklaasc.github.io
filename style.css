@@ -146,7 +146,7 @@ dt {
 }
 
 @media (max-width: 960px){
-	#wrapper {
+	.wrapper {
 		width: 82%;
 	}
 }

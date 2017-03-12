@@ -145,7 +145,7 @@ dt {
 	font-weight: bold;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 960px){
 	#wrapper {
 		width: 82%;
 	}

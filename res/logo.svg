@@ -10,15 +10,16 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1052.36"
-   height="1051.36"
+   width="1122.5173"
+   height="1121.4507"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="bunlogo2.svg"
-   inkscape:export-filename="/home/niklaas/Documents/bunlogo400.png"
-   inkscape:export-xdpi="34.208828"
-   inkscape:export-ydpi="34.208828">
+   inkscape:version="0.92.0 r15299"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="C:\Users\nwill\Documents\GitHub\niklaasc.github.io\res\bitmap.png"
+   inkscape:export-xdpi="51.245552"
+   inkscape:export-ydpi="51.245552"
+   viewBox="0 0 1052.36 1051.36">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -29,8 +30,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.34985316"
-     inkscape:cx="236.33041"
-     inkscape:cy="428.49459"
+     inkscape:cx="204.17844"
+     inkscape:cy="657.16195"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -39,9 +40,9 @@
      showguides="true"
      inkscape:snap-bbox="true"
      inkscape:window-width="1366"
-     inkscape:window-height="714"
-     inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -49,7 +50,11 @@
        empspacing="5"
        visible="true"
        enabled="true"
-       snapvisiblegridlinesonly="true" />
+       snapvisiblegridlinesonly="true"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -59,7 +64,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -69,7 +74,7 @@
      id="layer1"
      transform="translate(0,-1.0021316)"
      sodipodi:insensitive="true"
-     style="opacity:0.11904764;display:none">
+     style="display:none;opacity:0.11904764">
     <image
        y="2.3621182"
        x="1.4285692"

@@ -1,9 +1,3 @@
-body {
-		background-image: url('output.jpg');
-}
-.fullscreen-bg {
-  background: url('output.jpg') center center / cover no-repeat;
-}
 h2 {
 	left: -6px;
 }

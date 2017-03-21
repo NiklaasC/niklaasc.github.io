@@ -133,7 +133,7 @@ dt {
 	font-weight: bold;
 }
 .hide {
-	display: inline-block;
+	display: inline;
 }
 
 @media (max-width: 700px) {

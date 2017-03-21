@@ -1,4 +1,4 @@
-body, div, nav, img, h2, h3 {
+body, div, nav, img, svg, h2, h3 {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
@@ -149,8 +149,11 @@ dt {
 		width: 100%;
 		margin: 0px auto;
 	}
+	nav {
+		padding: 0px;
+	}
 }
-@media (max-width: 360px) {
+@media (max-width: 380px) {
 	.hide {
 		display: none;
 	}

@@ -12,7 +12,7 @@
   width: 100%;
   height: 260px;
   float:left;
-  margin-left: 4%;
+  margin-left: 2%;
   background-color: #cccccc;
   background-size: cover;
   background-position: center;
@@ -26,19 +26,19 @@
   height: 100%;
 }
 .one {
-  width: 13.3333333333%;;
+  width: 15%;;
 }
 .two {
-  width: 30.6666666667%;
+  width: 32%;
 }
 .three {
-  width: 48%;
+  width: 49%;
 }
 .four {
-  width: 65.3333333333%;
+  width: 66%;
 }
 .five {
-  width: 82.6666666667%;
+  width: 83%;
 }
 .six {
   width: 100%;
@@ -53,6 +53,19 @@
     width: 100%;
     margin-left: 0px;
     margin-bottom: 20px;
+  }
+  .row {
+    margin-bottom: 0px;
+  }
+  .spacer {
+    height: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 380px) {
+  .one, .two, .three, .four, .five, .six {
+    margin-bottom: 10px;
   }
   .row {
     margin-bottom: 0px;

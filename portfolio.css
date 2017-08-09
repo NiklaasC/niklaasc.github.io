@@ -40,7 +40,7 @@ h3 {
 }
 
 #manifold {
-  background-image: url('./manifold/manifoldBanner.jpg');
+  background: url('./manifold/manifoldBanner.jpg') top center;
 }
 
 #sculpture {

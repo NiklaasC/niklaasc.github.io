@@ -1,15 +1,11 @@
 body {
   background-color: #000;
-	background-image: url('output.jpg');
-}
-.fullscreen-bg {
-  background: url('output.jpg') center center / cover no-repeat;
 }
 .wrapper {
   top: 200px;
 }
-.experiments {
-  top: 260px;
+h2 {
+  left: -6px;
 }
 h3 {
   color: #ffffff;
@@ -24,9 +20,29 @@ h3 {
 }
 
 #moth {
-  background-image: url('./moth/IMG_1294_E.JPG');
+  background-image: url('./moth/mothBanner.jpg');
 }
 
 #tinker {
-  background-image: url('./tinkering-sign/final.jpg');
+  background-image: url('./tinkering-sign/tinkeringBanner.jpg');
+}
+
+#kiwi {
+  background-image: url('./kiwi-puppet/kiwiBanner.jpg');
+}
+
+#planetarium {
+  background-image: url('./mini-planetarium/planetariumBanner.jpg');
+}
+
+#threshold {
+  background-image: url('./threshold/thresholdBanner.jpg');
+}
+
+#manifold {
+  background-image: url('./manifold/manifoldBanner.jpg');
+}
+
+#sculpture {
+  background-image: url('./sculpture/sculptureBanner.jpg');
 }

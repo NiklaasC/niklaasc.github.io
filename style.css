@@ -1,4 +1,4 @@
-body, div, nav, img, svg, h2, h3 {
+body, div, nav, img, svg, h2, h3, video {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
@@ -46,6 +46,11 @@ h2 {
 .maximum {
 	width: 100%;
 	height: auto;
+}
+.medium {
+  width: 75%;
+  height: auto;
+  margin: 0px auto;
 }
 .video {
 	position: absolute;
@@ -149,6 +154,10 @@ dt {
 		width: 100%;
 		float: none;
 	}
+  .medium {
+    width: 100%;
+    height: auto;
+  }
 	.center {
 		width: 100%;
 		margin: 0px auto;

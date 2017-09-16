@@ -123,10 +123,12 @@ nav {
 	padding: 0px 10px 5px 10px;
 	font-size: 80%;
 }
-.clear {
-  content: "";
-  display: block;
-  clear: both;
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
 }
 .short {
 	margin-top: 0px;

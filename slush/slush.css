@@ -1,0 +1,11 @@
+h2 {
+	left: -4px;
+}
+
+.video-container {
+  background: url('slush-portrait.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

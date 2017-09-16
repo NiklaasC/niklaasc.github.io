@@ -1,3 +1,7 @@
 h2 {
 	left: -6px;
 }
+
+.video-container {
+  background: url('self-portrait.jpg') no-repeat center center fixed;
+}

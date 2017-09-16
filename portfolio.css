@@ -20,23 +20,23 @@ h3 {
 }
 
 #moth {
-  background-image: url('./moth/mothBanner.jpg');
+  background-image: url('./moth/finished-moth.jpg');
 }
 
 #tinker {
-  background-image: url('./tinkering-sign/tinkeringBanner.jpg');
+  background-image: url('./tinkering-sign/tinkering-sign-banner.jpg');
 }
 
 #kiwi {
-  background-image: url('./kiwi-puppet/kiwiBanner.jpg');
+  background-image: url('./kiwi-puppet/kiwi-closeup.jpg');
 }
 
 #planetarium {
-  background-image: url('./mini-planetarium/planetariumBanner.jpg');
+  background-image: url('./mini-planetarium/planetarium-banner.jpg');
 }
 
 #threshold {
-  background-image: url('./threshold/thresholdBanner.jpg');
+  background-image: url('./threshold/threshold-banner.jpg');
 }
 
 #manifold {
@@ -44,5 +44,17 @@ h3 {
 }
 
 #sculpture {
-  background-image: url('./sculpture/sculptureBanner.jpg');
+  background-image: url('./sculpture/sculpture-banner.jpg');
+}
+
+#rockcam {
+  background-image: url('./rock-cam/rock-cam-banner.jpg');
+}
+
+#m2hospital {
+  background-image: url('./m2-hospital/m2-hospital-close-up.jpg');
+}
+
+#slush {
+  background-image: url('./slush/slush-portrait.jpg');
 }

@@ -23,12 +23,12 @@ a:hover {
 	color: #333333;
 }
 h2 {
-	font-size: 84px;
+	font-size: 72px;
 	margin: 0px;
 	color: white;
 	padding: 0px;
 	position: absolute;
-	top: -74px;
+	top: -66px;
 	left: 0px;
 	z-index: -10;
 	line-height: normal;
@@ -58,7 +58,6 @@ h2 {
 	left: 0;
 	width: 100%;
 	height: auto;
-
 }
 .video-container {
 	position: fixed;
@@ -167,6 +166,17 @@ dt {
 	nav {
 		padding: 0px;
 	}
+  h2 {
+    font-size: 52px;
+    margin: 0px;
+    color: white;
+    padding: 0px;
+    position: absolute;
+    top: -46px;
+    left: 0px;
+    z-index: -10;
+    line-height: normal;
+  }
 }
 @media (max-width: 380px) {
 	.wrapper {
@@ -176,4 +186,15 @@ dt {
 	.hide {
 		display: none;
 	}
+  h2 {
+  	font-size: 45px;
+  	margin: 0px;
+  	color: white;
+  	padding: 0px;
+  	position: absolute;
+  	top: -40px;
+  	left: 0px;
+  	z-index: -10;
+  	line-height: normal;
+  }
 }

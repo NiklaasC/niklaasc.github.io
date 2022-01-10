@@ -1,0 +1,8 @@
+- name: blog
+  link: /
+- name: archive
+  link: /archive/
+- name: portfolio
+  link: /portfolio/
+- name: about
+  link: /about/

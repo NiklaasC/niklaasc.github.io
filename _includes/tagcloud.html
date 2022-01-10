@@ -1,0 +1,11 @@
+<div class="tags cloud">
+    <h4>tag cloud</h4>
+    <ul>
+    {% capture count_tags %}{% for tags in site.tags %}{% assign tagged_posts = site.posts | where: 'tags', tags.tag %}{% assign number_of_posts = tagged_posts | size %}{% assign sort = 1000 | minus: number_of_posts %}{{ sort }}:{{tags.tag}}:{{number_of_posts}}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+    {% assign sorted_tags = count_tags | split: ',' | sort %}
+    {% for sorted_tag in sorted_tags %}
+        {% assign tag_items = sorted_tag | split: ':' %}
+        <li><a href="/tags/{{ tag_items[1] }}/" alt="{{tag_items[2]}}"><nobr>{{ tag_items[1] }}</nobr></a></li>
+    {% endfor %}
+    </ul>
+</div>

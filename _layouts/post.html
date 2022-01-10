@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<header>
+    <h1>{{ page.title | downcase }}</h1>
+    <span class="date">{{ page.date | date_to_string }}</span>
+</header>
+<div class="tags">
+        <ul>
+        {% for tag in page.tags %}
+        {% capture tag_name %}{{ tag }}{% endcapture %}
+        <li><a href="/tags/{{ tag_name }}/">{{ tag_name }}</a></li>
+        {% endfor %}
+        </ul>
+</div>
+{{ content }}
+<div class="PageNavigation">
+    {% if page.previous.url %}
+        <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title | downcase }}</a>
+    {% else %}
+        <span class="blank"></span>
+    {% endif %}
+    {% if page.next.url %}
+        <a class="next" href="{{page.next.url}}">{{page.next.title | downcase }} &raquo;</a>
+    {% else %}
+        <span class="blank"></span>
+    {% endif %}
+</div>

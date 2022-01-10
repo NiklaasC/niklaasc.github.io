@@ -8,4 +8,4 @@ My hope is that by focusing on smaller personal experiments I will be able to be
 
 It's a beautiful thing when I find a small nook on the internet where someone has tackled and documented a problem I am trying to solve, and I hope that I can pay that forward.
 
-![A screenshot of the old niklaas.co.uk homepage](/assets/images/posts/old-website.png "The old website ...")
+![A screenshot of the old niklaas.co.uk homepage](assets/images/posts/old-website.png "The old website ...")

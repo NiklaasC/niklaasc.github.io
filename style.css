@@ -1,0 +1,159 @@
+:root {
+    --width: 32;
+    --code: 38;
+}
+@font-face {
+    font-family : 'Krub';
+    font-weight : 300;
+    src         : url('./resources/Krub-Light.ttf') format('truetype');
+}
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+::selection {
+    color: #222;
+    background-color: #FC0;
+}
+svg {
+    fill: currentColor;
+}
+html {
+    height: 100%;
+    margin: 0;
+    font-size: 22px;
+    font-family: Krub, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.04rem;
+}
+body {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100%;
+    background: #222;
+    color: #DDD;
+}
+a {
+    color: #FC0;
+    text-decoration: none;
+    font-weight: normal;
+}
+a:link {
+    color: #FC0;
+    text-decoration: none;
+}
+a:visited {
+    color: #FC0;
+    text-decoration: none;
+}
+a:hover {
+    color: #FC0;
+    text-decoration: underline;
+}
+a:active {
+    text-decoration: none;
+}
+header {
+    background: #FC0;
+    color: #222;
+    padding: 0.5rem 0;
+}
+main {
+    padding: 0;
+}
+footer {
+    text-align: right;
+}
+nav {
+    max-width  : min(calc(100% - 2rem), calc(1rem * var(--width)));
+    margin     : 0 auto;
+    padding    : 0 1rem;
+}
+h1, h2, h3, h4, h5, h6,
+p, ul, li, figcaption, pre,
+main > div {
+    display: block;
+    max-width  : min(calc(100% - 2rem), calc(1rem * var(--width)));
+    margin     : 0 auto;
+    padding    : 1rem 1rem 0rem 1rem;
+}
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+    padding-top: 0;
+}
+ul {
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+li ul {
+    padding: 0;
+}
+li {
+    padding: 0.5rem 1rem 0rem 1rem;
+}
+li > span {
+    display: block;
+    font-size: 60%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: #FC0;
+}
+.subtitle {
+    font-size: 80%;
+}
+footer {
+    padding: 0.5rem;
+    font-size: 80%;
+}
+img {
+    display: block;
+}
+main > img,
+main > figure > img {
+    max-width: min(100%, calc(1rem * var(--width)));
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem 0 0 0;
+}
+figcaption {
+    display: block;
+    max-width  : min(calc(100% - 2rem), calc(1rem * var(--width)));
+    margin     : 0 auto;
+    padding: 0.25rem 1rem;
+    font-size: 80%;
+}
+.note {
+    max-width  : min(calc(100% - 8rem), calc(1rem * var(--width) - 6rem));
+    background: #333;
+    font-size: 50%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+.unfinished:link {
+    text-decoration: line-through;
+}
+pre {
+    display: block;
+    font-size: 70%;
+    max-width  : min(calc(100%), calc(1rem * var(--code)));
+    margin     : 1rem auto 0rem auto;
+    padding    : 0rem 1.5rem 0rem 1.5rem;
+    background: #333;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border-left: solid #FC0 0.5px;
+    border-right: solid #FC0 0.5px;
+}
+.tbc {
+    color: #222;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    background:#FC0;
+    margin: 1rem auto;
+    width: fit-content;
+    padding: 0.5rem;
+}
+.footnote {
+    font-size: 70%;
+}
+

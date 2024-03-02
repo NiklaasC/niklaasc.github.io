@@ -1,8 +1,0 @@
-I"�<p>After running a simple static portfolio website for forever, I’ve decided to switch to running a blog. I was using <a href="https://pages.github.com/">github pages</a> to host a static website, but I’ve switched to using <a href="https://jekyllrb.com/">Jekyll</a> to generate a static website from <a href="https://daringfireball.net/projects/markdown/">Markdown</a> (All still hosted on github).</p>
-
-<p>My hope is that by focusing on smaller personal experiments I will be able to better document my work, whilst giving me the opportunity to share fundamentals, tips, tricks and any hard-won experience I’ve gained.</p>
-
-<p>It’s a beautiful thing when I find a small nook on the internet where someone has tackled and documented a problem I am trying to solve, and I hope that I can pay that forward.</p>
-
-<p><img src="/assets/images/posts/old-website.png" alt="A screenshot of the old niklaas.co.uk homepage" title="The old website ..." /></p>
-:ET

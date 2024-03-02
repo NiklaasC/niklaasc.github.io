@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>niklaas</title>
+    <link rel="self" href="https://niklaas.co.uk/feed.atom"/>
+    <author>
+        <name>niklaas</name>
+    </author>
+    <id>tag:niklaas.co.uk,2022-10-31:00000</id>
+    <updated>2002-10-02T15:00:00Z</updated>
+
+    <entry>
+        
+    </entry>
+
+</feed>

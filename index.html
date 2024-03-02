@@ -1,7 +1,47 @@
----
-title: niklaas
-layout: null
----
-{% for post in site.posts limit:1 %}
-    {{ post }}
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <title>niklaas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css" type="text/css" />
+        <link rel="stylesheet" href="./libraries/prism.css" type="text/css" />
+        <link rel="icon" href="./favicon.png" type="image/png" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a title="niklaas.co.uk" href="./"><img src="./bunlogo.svg" height="64px" width="64px"></a>
+            </nav>
+        </header>
+        <main>
+            <h2>Projects</h2>
+            <p class="subtitle">
+                On-going development logs
+            </p>
+            <ul>
+<!--
+                <li><a href="./project/example/">Example</a></li>
+                <li><a class="unfinished" href="/">Comics</a></li>
+-->
+            </ul>
+            <h2>Articles</h2>
+            <p class="subtitle">
+                Articles on individual topics, covering my research and development:
+            </p>
+            <ul>
+<!--            <li><a href="./article/time-is-a-flat-circle/" alt="">Time is a flat circle</a> <span>October 2022</span></li> -->
+            </ul>
+            <h2>About</h2>
+            <p>
+                I love to explore the anthropomorphisation of objects: in software, puppetry and robotics. Taking inspiration from the natural world to invent the behaviour of objects.
+            </p>
+            <h2>Contact</h2>
+            <p>hello@niklaas.co.uk</p>
+            <p>@itsniklaas on twitter and instagram</p>
+        </main>
+        <footer>
+            &copy;niklaas
+        </footer>
+    </body>
+</html>

@@ -1,2 +1,0 @@
-I"�<p>After running a simple static portfolio website for forever, I’ve decided to switch to running a blog. I was using <a href="https://pages.github.com/">github pages</a> to host a static website, but I’ve switched to using <a href="https://jekyllrb.com/">Jekyll</a> to generate a static website from a mix of HTML, <a href="https://shopify.github.io/liquid/">Liquid</a> and <a href="https://daringfireball.net/projects/markdown/">Markdown</a> (All still hosted on github).</p>
-:ET
